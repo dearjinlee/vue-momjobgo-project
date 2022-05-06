@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "ArithmeticOperation",
 
   data: () => ({
     number1: 0,

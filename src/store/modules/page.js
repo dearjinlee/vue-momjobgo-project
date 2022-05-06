@@ -1,82 +1,89 @@
-import HomeView from '@/views/HomeView.vue'
-import AboutView from '@/views/AboutView.vue'
+import HomeView from "@/views/HomeView.vue";
+import InfoView from "@/views/InfoView.vue";
+import AboutView from "@/views/AboutView.vue";
 
 export default {
+  namespaced: true,
 
-    namespaced : true,
+  state: {
+    title: "",
 
-    state : {
+    basePath: "",
 
-        title : '',
-
-        basePath : '',
-
-        list : {
-            home : {
-                path: `/home`,
-                name: `home`,
-                meta: {
-                    title: `Home`,
-                    icon: `home`
-                },
-                component : HomeView
-            },
-
-            about : {
-                path: `/about`,
-                name: `about`,
-                meta: {
-                    title: `About`,
-                    icon: `question_mark`
-                },
-                component : AboutView
-            }
+    list: {
+      home: {
+        path: `/home`,
+        name: `home`,
+        meta: {
+          title: `Home`,
+          icon: `home`,
         },
+        component: HomeView,
+      },
 
-        visible : {
-            header : true,
-            navi : true,
-            footer : true
-        }
+      info: {
+        path: `/info`,
+        name: `info`,
+        meta: {
+          title: `Info`,
+          icon: `info`,
+        },
+        component: InfoView,
+      },
 
+      about: {
+        path: `/about`,
+        name: `about`,
+        meta: {
+          title: `About`,
+          icon: `question_mark`,
+        },
+        component: AboutView,
+      },
     },
 
-    getters : {
-        title(state){
-            return state.title;
-        },
+    visible: {
+      header: true,
+      navi: true,
+      footer: true,
+    },
+  },
 
-        basePath(state){
-            return state.basePath;
-        },
-
-        menuList(state){
-            return state.list;
-        },
-
-        visible(state){
-            return state.visible;
-        }
+  getters: {
+    title(state) {
+      return state.title;
     },
 
-    mutations : {
-        setTitle(state, title){
-            state.title = title;
-        },
-
-        setVisible(state, {key, value}){
-            state[key] = value;
-        }
+    basePath(state) {
+      return state.basePath;
     },
 
-    actions : {
-        setTitle({commit}, title){
-            commit('setTitle', title);
-        },
+    menuList(state) {
+      return state.list;
+    },
 
-        setVisible({commit}, payload){
-            commit('setVisible', payload); 
-        }
-    }
+    visible(state) {
+      return state.visible;
+    },
+  },
 
-}
+  mutations: {
+    setTitle(state, title) {
+      state.title = title;
+    },
+
+    setVisible(state, { key, value }) {
+      state[key] = value;
+    },
+  },
+
+  actions: {
+    setTitle({ commit }, title) {
+      commit("setTitle", title);
+    },
+
+    setVisible({ commit }, payload) {
+      commit("setVisible", payload);
+    },
+  },
+};
