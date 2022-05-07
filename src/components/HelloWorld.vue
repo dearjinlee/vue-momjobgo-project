@@ -7,15 +7,16 @@
       <input type="number" v-model="number3" /><label
         >&nbsp{{ this.calculate }}</label
       ><br />
-      <button v-on:click="addition">+</button>
-      <button v-on:click="subtraction">-</button>
-      <button v-on:click="multiplication">*</button>
-      <button v-on:click="division">/</button>
+      <button v-on:click="addition">[&nbsp+&nbsp</button>
+      <button v-on:click="subtraction">&nbsp-&nbsp</button>
+      <button v-on:click="multiplication">&nbsp*&nbsp</button>
+      <button v-on:click="division">&nbsp/&nbsp]</button>
     </div>
   </v-container>
 </template>
 
 <script>
+// TODO : import { mapActions } from "vuex";
 export default {
   name: "HelloWorld",
 
@@ -26,6 +27,7 @@ export default {
     calculate: "계산",
   }),
   methods: {
+    // TODO : ...mapActions(['actionAdd']),
     addition() {
       this.calculate = "덧셈";
       this.number3 = parseFloat(this.number1) + parseFloat(this.number2);
